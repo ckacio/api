@@ -1,0 +1,144 @@
+{
+	"info": {
+		"_postman_id": "43418b66-d1c5-425a-af49-eab943efabcc",
+		"name": "Segurança em APIs ASP.NET com JWT e Bearer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10453453"
+	},
+	"item": [
+		{
+			"name": "http://localhost:7224/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "/*\r\nAutenticação e autorização com JWT e Bearer\r\nhttps://balta.io/blog/autenticacao-e-autorizacao-com-jwt-e-bearer-no-aspnet-7\r\n*/\r\n{\r\n    \"email\": \"teste@balta.io\",\r\n    \"roles\": [\r\n        \"admin\",\r\n        \"premium\",\r\n        \"employee\",\r\n        \"manager\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7224/login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7224",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:7224/hello",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7224/hello",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7224",
+					"path": [
+						"hello"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:7224/hello - Autenticado",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InRlc3RlQGJhbHRhLmlvIiwicm9sZSI6WyJhZG1pbiIsInByZW1pdW0iXSwibmJmIjoxNzI4MzM0OTA1LCJleHAiOjE3MjgzNDIxMDUsImlhdCI6MTcyODMzNDkwNX0.m69N_OAgIYLRL9E4ztNAqMWSvPeVPCjIkoNL8nHQlMI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7224/hello",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7224",
+					"path": [
+						"hello"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:7224/employee",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InRlc3RlQGJhbHRhLmlvIiwicm9sZSI6WyJhZG1pbiIsInByZW1pdW0iLCJlbXBsb3llZSJdLCJuYmYiOjE3MjgzMzQ5NjUsImV4cCI6MTcyODM0MjE2NSwiaWF0IjoxNzI4MzM0OTY1fQ.2IvysctYW5VFQ0OLqPeDIckO3UlT_vMvE-7kRXk5H5w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7224/employee",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7224",
+					"path": [
+						"employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:7224/manager",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InRlc3RlQGJhbHRhLmlvIiwicm9sZSI6WyJhZG1pbiIsInByZW1pdW0iLCJlbXBsb3llZSIsIm1hbmFnZXIiXSwibmJmIjoxNzI4MzM1MDA3LCJleHAiOjE3MjgzNDIyMDcsImlhdCI6MTcyODMzNTAwN30.xTxTavVg2w3aAxdmoK5R4xNZgR357QwDgcUOo1NM07g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7224/manager",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7224",
+					"path": [
+						"manager"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
